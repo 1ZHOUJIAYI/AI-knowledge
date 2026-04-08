@@ -1,0 +1,2828 @@
+[
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 0,
+        "end": 2
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3,
+        "end": 5
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 26,
+        "end": 28
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 28,
+        "end": 31
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 56,
+        "end": 59
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 76,
+        "end": 78
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 105,
+        "end": 108
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 128,
+        "end": 131
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 143,
+        "end": 146
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 155,
+        "end": 157
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 173,
+        "end": 175
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 180,
+        "end": 182
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 267,
+        "end": 269
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 279,
+        "end": 281
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 311,
+        "end": 313
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 341,
+        "end": 343
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 348,
+        "end": 350
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 360,
+        "end": 362
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 380,
+        "end": 382
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 398,
+        "end": 400
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 412,
+        "end": 414
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 422,
+        "end": 424
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 462,
+        "end": 464
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 498,
+        "end": 500
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 524,
+        "end": 526
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 549,
+        "end": 551
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 551,
+        "end": 553
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 569,
+        "end": 571
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 576,
+        "end": 578
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 589,
+        "end": 591
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 607,
+        "end": 609
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 609,
+        "end": 611
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 620,
+        "end": 622
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 638,
+        "end": 640
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 654,
+        "end": 656
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 691,
+        "end": 693
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 734,
+        "end": 736
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 808,
+        "end": 810
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 833,
+        "end": 835
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 838,
+        "end": 840
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 852,
+        "end": 854
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 854,
+        "end": 856
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 863,
+        "end": 865
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 895,
+        "end": 897
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 902,
+        "end": 904
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 907,
+        "end": 909
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 911,
+        "end": 913
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 937,
+        "end": 939
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 968,
+        "end": 970
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 971,
+        "end": 973
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 1113,
+        "end": 1115
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1142,
+        "end": 1144
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1185,
+        "end": 1189
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1228,
+        "end": 1230
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1237,
+        "end": 1242
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1256,
+        "end": 1258
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 1262,
+        "end": 1264
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1281,
+        "end": 1283
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1299,
+        "end": 1304
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1350,
+        "end": 1352
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 1363,
+        "end": 1366
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1369,
+        "end": 1374
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1430,
+        "end": 1434
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1467,
+        "end": 1469
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 1474,
+        "end": 1476
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1488,
+        "end": 1490
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1497,
+        "end": 1501
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1507,
+        "end": 1511
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 1516,
+        "end": 1518
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 1533,
+        "end": 1535
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1560,
+        "end": 1562
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1563,
+        "end": 1568
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1576,
+        "end": 1580
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 1582,
+        "end": 1585
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 1632,
+        "end": 1634
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1654,
+        "end": 1656
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1662,
+        "end": 1667
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1672,
+        "end": 1677
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1686,
+        "end": 1688
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1724,
+        "end": 1729
+    },
+    {
+        "mention": "伯恩",
+        "label": "伯恩",
+        "start": 1760,
+        "end": 1762
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1779,
+        "end": 1781
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1808,
+        "end": 1810
+    },
+    {
+        "mention": "克里斯托弗",
+        "label": "克里斯托弗",
+        "start": 1831,
+        "end": 1836
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 1862,
+        "end": 1864
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1892,
+        "end": 1896
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 1910,
+        "end": 1912
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 1992,
+        "end": 1994
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 1999,
+        "end": 2003
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2019,
+        "end": 2021
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2034,
+        "end": 2036
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 2099,
+        "end": 2102
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2107,
+        "end": 2110
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2126,
+        "end": 2129
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2160,
+        "end": 2162
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 2164,
+        "end": 2166
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2189,
+        "end": 2192
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 2198,
+        "end": 2204
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 2214,
+        "end": 2218
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 2218,
+        "end": 2220
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 2220,
+        "end": 2223
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 2228,
+        "end": 2231
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2246,
+        "end": 2249
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 2250,
+        "end": 2252
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2253,
+        "end": 2255
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2267,
+        "end": 2269
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2272,
+        "end": 2275
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2298,
+        "end": 2301
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 2304,
+        "end": 2310
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 2311,
+        "end": 2313
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 2317,
+        "end": 2321
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2333,
+        "end": 2335
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2348,
+        "end": 2351
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 2358,
+        "end": 2360
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2368,
+        "end": 2370
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 2372,
+        "end": 2374
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 2380,
+        "end": 2382
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2454,
+        "end": 2456
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 2470,
+        "end": 2473
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 2477,
+        "end": 2479
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 2482,
+        "end": 2484
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 2506,
+        "end": 2510
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2517,
+        "end": 2519
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2568,
+        "end": 2570
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 2647,
+        "end": 2649
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2653,
+        "end": 2655
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2679,
+        "end": 2681
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2706,
+        "end": 2708
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 2722,
+        "end": 2725
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 2726,
+        "end": 2729
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2730,
+        "end": 2732
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 2747,
+        "end": 2749
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 2757,
+        "end": 2761
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2775,
+        "end": 2777
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2831,
+        "end": 2833
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 2845,
+        "end": 2847
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 2848,
+        "end": 2850
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2865,
+        "end": 2867
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2885,
+        "end": 2887
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2918,
+        "end": 2920
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 2924,
+        "end": 2926
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 2926,
+        "end": 2928
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 2929,
+        "end": 2931
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 2956,
+        "end": 2958
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 2958,
+        "end": 2960
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 2961,
+        "end": 2963
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 2988,
+        "end": 2990
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3011,
+        "end": 3013
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3017,
+        "end": 3019
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3020,
+        "end": 3022
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 3044,
+        "end": 3048
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 3048,
+        "end": 3051
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3060,
+        "end": 3062
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3068,
+        "end": 3070
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3071,
+        "end": 3073
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 3124,
+        "end": 3128
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3132,
+        "end": 3134
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3135,
+        "end": 3137
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3146,
+        "end": 3148
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3149,
+        "end": 3151
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 3162,
+        "end": 3164
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 3170,
+        "end": 3173
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 3174,
+        "end": 3176
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3178,
+        "end": 3180
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3180,
+        "end": 3182
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 3196,
+        "end": 3199
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3203,
+        "end": 3205
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3209,
+        "end": 3211
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3212,
+        "end": 3214
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3215,
+        "end": 3217
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3237,
+        "end": 3239
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3240,
+        "end": 3242
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3250,
+        "end": 3252
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3253,
+        "end": 3255
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3267,
+        "end": 3269
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3283,
+        "end": 3285
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3287,
+        "end": 3289
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 3298,
+        "end": 3301
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 3302,
+        "end": 3304
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3308,
+        "end": 3310
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3322,
+        "end": 3324
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3340,
+        "end": 3342
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 3345,
+        "end": 3347
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3351,
+        "end": 3353
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3353,
+        "end": 3355
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3358,
+        "end": 3360
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3361,
+        "end": 3363
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 3369,
+        "end": 3373
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3384,
+        "end": 3386
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3416,
+        "end": 3418
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3423,
+        "end": 3425
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3433,
+        "end": 3435
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 3457,
+        "end": 3459
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3480,
+        "end": 3482
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3484,
+        "end": 3486
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3491,
+        "end": 3493
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 3495,
+        "end": 3499
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3519,
+        "end": 3521
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3522,
+        "end": 3524
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3524,
+        "end": 3526
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 3529,
+        "end": 3531
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 3533,
+        "end": 3537
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3559,
+        "end": 3561
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3576,
+        "end": 3578
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3627,
+        "end": 3629
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3716,
+        "end": 3718
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 3722,
+        "end": 3728
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 3733,
+        "end": 3739
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 3742,
+        "end": 3745
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 3753,
+        "end": 3759
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3764,
+        "end": 3766
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 3767,
+        "end": 3769
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3774,
+        "end": 3776
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3777,
+        "end": 3779
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 3780,
+        "end": 3782
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3785,
+        "end": 3787
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 3798,
+        "end": 3804
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 3807,
+        "end": 3809
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 3819,
+        "end": 3821
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3824,
+        "end": 3826
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 3827,
+        "end": 3829
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3842,
+        "end": 3844
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 3846,
+        "end": 3849
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3859,
+        "end": 3861
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 3862,
+        "end": 3864
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 3934,
+        "end": 3936
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3949,
+        "end": 3951
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 3955,
+        "end": 3957
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 3967,
+        "end": 3969
+    },
+    {
+        "mention": "判定",
+        "label": "判定",
+        "start": 3999,
+        "end": 4001
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 4002,
+        "end": 4004
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 4010,
+        "end": 4012
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 4092,
+        "end": 4096
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4104,
+        "end": 4106
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 4118,
+        "end": 4121
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 4131,
+        "end": 4134
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4138,
+        "end": 4140
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 4141,
+        "end": 4145
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 4153,
+        "end": 4159
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 4168,
+        "end": 4172
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4179,
+        "end": 4181
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4181,
+        "end": 4184
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4197,
+        "end": 4199
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4199,
+        "end": 4202
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4267,
+        "end": 4269
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4269,
+        "end": 4272
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4301,
+        "end": 4303
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4303,
+        "end": 4306
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 4307,
+        "end": 4309
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 4312,
+        "end": 4318
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4344,
+        "end": 4346
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4346,
+        "end": 4349
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 4360,
+        "end": 4363
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4424,
+        "end": 4426
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 4427,
+        "end": 4431
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 4436,
+        "end": 4442
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4467,
+        "end": 4469
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4469,
+        "end": 4472
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4489,
+        "end": 4491
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4496,
+        "end": 4498
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 4499,
+        "end": 4503
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 4509,
+        "end": 4512
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4515,
+        "end": 4517
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4517,
+        "end": 4520
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 4527,
+        "end": 4531
+    },
+    {
+        "mention": "高等",
+        "label": "高等",
+        "start": 4556,
+        "end": 4558
+    },
+    {
+        "mention": "研究院",
+        "label": "研究院",
+        "start": 4558,
+        "end": 4561
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4576,
+        "end": 4578
+    },
+    {
+        "mention": "普林斯顿大学",
+        "label": "普林斯顿大学",
+        "start": 4579,
+        "end": 4585
+    },
+    {
+        "mention": "奖学金",
+        "label": "奖学金",
+        "start": 4602,
+        "end": 4605
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 4616,
+        "end": 4618
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4621,
+        "end": 4623
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 4624,
+        "end": 4626
+    },
+    {
+        "mention": "邱奇",
+        "label": "邱奇",
+        "start": 4632,
+        "end": 4634
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4639,
+        "end": 4641
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 4645,
+        "end": 4647
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4668,
+        "end": 4670
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 4675,
+        "end": 4678
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 4697,
+        "end": 4699
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 4709,
+        "end": 4711
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 4714,
+        "end": 4718
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 4720,
+        "end": 4722
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 4795,
+        "end": 4797
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 4798,
+        "end": 4800
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 4811,
+        "end": 4813
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4827,
+        "end": 4829
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 4830,
+        "end": 4834
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 4862,
+        "end": 4864
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4896,
+        "end": 4898
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 4968,
+        "end": 4970
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 4971,
+        "end": 4973
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 4994,
+        "end": 4997
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 5000,
+        "end": 5002
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5014,
+        "end": 5017
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5022,
+        "end": 5024
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 5043,
+        "end": 5045
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 5088,
+        "end": 5091
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5097,
+        "end": 5099
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5188,
+        "end": 5190
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 5226,
+        "end": 5228
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5242,
+        "end": 5244
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5303,
+        "end": 5306
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5313,
+        "end": 5315
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5337,
+        "end": 5339
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 5376,
+        "end": 5378
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5398,
+        "end": 5401
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 5459,
+        "end": 5461
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 5477,
+        "end": 5479
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5497,
+        "end": 5500
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 5541,
+        "end": 5543
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5585,
+        "end": 5587
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5617,
+        "end": 5620
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5631,
+        "end": 5633
+    },
+    {
+        "mention": "普林斯顿",
+        "label": "普林斯顿",
+        "start": 5634,
+        "end": 5638
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 5641,
+        "end": 5643
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 5667,
+        "end": 5671
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 5718,
+        "end": 5720
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 5721,
+        "end": 5723
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 5741,
+        "end": 5743
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 5744,
+        "end": 5746
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 5763,
+        "end": 5767
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 5814,
+        "end": 5816
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5827,
+        "end": 5829
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 5831,
+        "end": 5833
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 5834,
+        "end": 5836
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 5863,
+        "end": 5865
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5886,
+        "end": 5888
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 5939,
+        "end": 5941
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 5977,
+        "end": 5980
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 5987,
+        "end": 5989
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 5998,
+        "end": 6000
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 6003,
+        "end": 6005
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 6006,
+        "end": 6008
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6053,
+        "end": 6055
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 6095,
+        "end": 6097
+    },
+    {
+        "mention": "尼格",
+        "label": "尼格",
+        "start": 6140,
+        "end": 6142
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6161,
+        "end": 6163
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 6181,
+        "end": 6183
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 6184,
+        "end": 6186
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 6186,
+        "end": 6188
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 6208,
+        "end": 6210
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 6211,
+        "end": 6213
+    },
+    {
+        "mention": "数学家",
+        "label": "数学家",
+        "start": 6216,
+        "end": 6219
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6236,
+        "end": 6238
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6267,
+        "end": 6269
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6332,
+        "end": 6334
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 6381,
+        "end": 6383
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6384,
+        "end": 6386
+    },
+    {
+        "mention": "莱切",
+        "label": "莱切",
+        "start": 6398,
+        "end": 6400
+    },
+    {
+        "mention": "庄园",
+        "label": "庄园",
+        "start": 6401,
+        "end": 6403
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 6440,
+        "end": 6442
+    },
+    {
+        "mention": "剑桥大学",
+        "label": "剑桥大学",
+        "start": 6444,
+        "end": 6448
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 6450,
+        "end": 6452
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6459,
+        "end": 6461
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 6468,
+        "end": 6471
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6511,
+        "end": 6513
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6523,
+        "end": 6525
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6537,
+        "end": 6539
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 6548,
+        "end": 6550
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 6560,
+        "end": 6562
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 6654,
+        "end": 6656
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 6660,
+        "end": 6662
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6698,
+        "end": 6700
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 6710,
+        "end": 6712
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6744,
+        "end": 6746
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 6776,
+        "end": 6779
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 6847,
+        "end": 6849
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 6853,
+        "end": 6855
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 6861,
+        "end": 6864
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 6868,
+        "end": 6870
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6894,
+        "end": 6896
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6922,
+        "end": 6924
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 6926,
+        "end": 6928
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 6942,
+        "end": 6945
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 6977,
+        "end": 6979
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 6988,
+        "end": 6991
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7009,
+        "end": 7012
+    },
+    {
+        "mention": "数学",
+        "label": "数学",
+        "start": 7037,
+        "end": 7039
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7054,
+        "end": 7056
+    },
+    {
+        "mention": "诺依曼",
+        "label": "诺依曼",
+        "start": 7090,
+        "end": 7093
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7133,
+        "end": 7135
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7162,
+        "end": 7164
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 7170,
+        "end": 7172
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7208,
+        "end": 7210
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7225,
+        "end": 7227
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 7245,
+        "end": 7248
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 7249,
+        "end": 7251
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 7256,
+        "end": 7258
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7270,
+        "end": 7273
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 7282,
+        "end": 7284
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7293,
+        "end": 7295
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7335,
+        "end": 7338
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7342,
+        "end": 7344
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 7363,
+        "end": 7365
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7411,
+        "end": 7413
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7416,
+        "end": 7418
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 7433,
+        "end": 7435
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7444,
+        "end": 7446
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7455,
+        "end": 7457
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7477,
+        "end": 7479
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7492,
+        "end": 7495
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 7501,
+        "end": 7503
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7524,
+        "end": 7526
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7530,
+        "end": 7532
+    },
+    {
+        "mention": "1936",
+        "label": "1936",
+        "start": 7541,
+        "end": 7545
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 7546,
+        "end": 7548
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 7552,
+        "end": 7554
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7563,
+        "end": 7565
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 7571,
+        "end": 7573
+    },
+    {
+        "mention": "发表",
+        "label": "发表",
+        "start": 7584,
+        "end": 7586
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7609,
+        "end": 7611
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7617,
+        "end": 7619
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 7694,
+        "end": 7696
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7708,
+        "end": 7711
+    },
+    {
+        "mention": "一台",
+        "label": "一台",
+        "start": 7724,
+        "end": 7726
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7726,
+        "end": 7729
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7734,
+        "end": 7737
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7754,
+        "end": 7756
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7772,
+        "end": 7774
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7791,
+        "end": 7793
+    },
+    {
+        "mention": "论文",
+        "label": "论文",
+        "start": 7794,
+        "end": 7796
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7825,
+        "end": 7827
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7835,
+        "end": 7837
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 7858,
+        "end": 7860
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 7870,
+        "end": 7873
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7887,
+        "end": 7889
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 7903,
+        "end": 7905
+    },
+    {
+        "mention": "机器",
+        "label": "机器",
+        "start": 7958,
+        "end": 7960
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 7984,
+        "end": 7986
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 8067,
+        "end": 8070
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 8091,
+        "end": 8093
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8094,
+        "end": 8096
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 8108,
+        "end": 8110
+    },
+    {
+        "mention": "麦克斯",
+        "label": "麦克斯",
+        "start": 8128,
+        "end": 8131
+    },
+    {
+        "mention": "纽曼",
+        "label": "纽曼",
+        "start": 8132,
+        "end": 8134
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8153,
+        "end": 8155
+    },
+    {
+        "mention": "计算机",
+        "label": "通用计算机",
+        "start": 8160,
+        "end": 8163
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8186,
+        "end": 8188
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8242,
+        "end": 8244
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 8287,
+        "end": 8289
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8290,
+        "end": 8292
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8306,
+        "end": 8308
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8341,
+        "end": 8343
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8366,
+        "end": 8368
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8415,
+        "end": 8417
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8450,
+        "end": 8452
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8464,
+        "end": 8466
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 8520,
+        "end": 8522
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8523,
+        "end": 8525
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8533,
+        "end": 8535
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8552,
+        "end": 8554
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8665,
+        "end": 8667
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8682,
+        "end": 8684
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8693,
+        "end": 8695
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 8722,
+        "end": 8725
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 8849,
+        "end": 8852
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 8892,
+        "end": 8895
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 8895,
+        "end": 8897
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 8915,
+        "end": 8918
+    },
+    {
+        "mention": "问题",
+        "label": "问题",
+        "start": 8923,
+        "end": 8925
+    },
+    {
+        "mention": "阿兰",
+        "label": "阿兰",
+        "start": 8928,
+        "end": 8930
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8931,
+        "end": 8933
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 8953,
+        "end": 8955
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8960,
+        "end": 8962
+    },
+    {
+        "mention": "工作",
+        "label": "工作",
+        "start": 8965,
+        "end": 8967
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 8975,
+        "end": 8977
+    },
+    {
+        "mention": "同性恋",
+        "label": "同性恋",
+        "start": 9024,
+        "end": 9027
+    },
+    {
+        "mention": "英国",
+        "label": "英国",
+        "start": 9031,
+        "end": 9033
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 9227,
+        "end": 9229
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 9282,
+        "end": 9284
+    },
+    {
+        "mention": "图灵",
+        "label": "艾伦·图灵",
+        "start": 9313,
+        "end": 9315
+    }
+]
