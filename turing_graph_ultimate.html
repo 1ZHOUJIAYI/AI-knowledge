@@ -1,0 +1,794 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+                <link href="lib/tom-select/tom-select.css" rel="stylesheet">
+                <script src="lib/tom-select/tom-select.complete.min.js"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 850px;
+                 background-color: #111111;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 850px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="He">He</option>
+                                
+                                    <option value="the section responsible for German naval cryptanalysis">the section responsible for German naval cryptanalysis</option>
+                                
+                                    <option value="a crucial role in cracking">a crucial role in cracking</option>
+                                
+                                    <option value="Turing">Turing</option>
+                                
+                                    <option value="Max Newman 's Computing Machine Laboratory">Max Newman 's Computing Machine Laboratory</option>
+                                
+                                    <option value="hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison">hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison</option>
+                                
+                                    <option value="The inquest">The inquest</option>
+                                
+                                    <option value="his death as suicide">his death as suicide</option>
+                                
+                                    <option value="British prime minister Gordon Brown">British prime minister Gordon Brown</option>
+                                
+                                    <option value="an official public apology">an official public apology</option>
+                                
+                                    <option value="Queen Elizabeth II">Queen Elizabeth II</option>
+                                
+                                    <option value="a pardon">a pardon</option>
+                                
+                                    <option value="The term " Alan Turing law "">The term " Alan Turing law "</option>
+                                
+                                    <option value="that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation">that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation</option>
+                                
+                                    <option value="Julius 's work with the ICS">Julius 's work with the ICS</option>
+                                
+                                    <option value="the family">the family</option>
+                                
+                                    <option value="Natural Wonders">Natural Wonders</option>
+                                
+                                    <option value="It">It</option>
+                                
+                                    <option value="Turing 's parents">Turing 's parents</option>
+                                
+                                    <option value="a house in Guildford">a house in Guildford</option>
+                                
+                                    <option value="him">him</option>
+                                
+                                    <option value="The headmistress">The headmistress</option>
+                                
+                                    <option value="his talent">his talent</option>
+                                
+                                    <option value="an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House">an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House</option>
+                                
+                                    <option value="Turing 's natural inclination towards mathematics and science">Turing 's natural inclination towards mathematics and science</option>
+                                
+                                    <option value="respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics">respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics</option>
+                                
+                                    <option value="His headmaster">His headmaster</option>
+                                
+                                    <option value="I hope he will not fall between two stools">I hope he will not fall between two stools</option>
+                                
+                                    <option value="I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited">I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited</option>
+                                
+                                    <option value="I expect you will be thinking of Chris when this reaches you">I expect you will be thinking of Chris when this reaches you</option>
+                                
+                                    <option value="Some">Some</option>
+                                
+                                    <option value="Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death">Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death</option>
+                                
+                                    <option value="His dissertation">His dissertation</option>
+                                
+                                    <option value="a version of the central limit">a version of the central limit</option>
+                                
+                                    <option value="his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) ,">his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) ,</option>
+                                
+                                    <option value="the committee">the committee</option>
+                                
+                                    <option value="Turing 's methods original and so regarded the work worthy of consideration for the fellowship">Turing 's methods original and so regarded the work worthy of consideration for the fellowship</option>
+                                
+                                    <option value="the first draft typescript of his investigations">the first draft typescript of his investigations</option>
+                                
+                                    <option value="Church">Church</option>
+                                
+                                    <option value="his An Unsolvable Problem of Elementary Number Theory">his An Unsolvable Problem of Elementary Number Theory</option>
+                                
+                                    <option value="that his " universal computing machine " would be capable of performing any conceivable mathematical computation if it were representable as an algorithm">that his " universal computing machine " would be capable of performing any conceivable mathematical computation if it were representable as an algorithm</option>
+                                
+                                    <option value="a notion of a ' Universal Machine ' ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church 's lambda calculus )">a notion of a ' Universal Machine ' ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church 's lambda calculus )</option>
+                                
+                                    <option value="John von Neumann">John von Neumann</option>
+                                
+                                    <option value="that the central concept of the modern computer was due to Turing 's paper.[65 ]">that the central concept of the modern computer was due to Turing 's paper.[65 ]</option>
+                                
+                                    <option value="cryptology">cryptology</option>
+                                
+                                    <option value="lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ]">lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ]</option>
+                                
+                                    <option value="The historian and wartime codebreaker Asa Briggs">The historian and wartime codebreaker Asa Briggs</option>
+                                
+                                    <option value="You needed exceptional talent , you needed genius at Bletchley and Turing 's was that genius">You needed exceptional talent , you needed genius at Bletchley and Turing 's was that genius</option>
+                                
+                                    <option value="the British codebreaking organisation">the British codebreaking organisation</option>
+                                
+                                    <option value="an innovative contribution to the subject">an innovative contribution to the subject</option>
+                                
+                                    <option value="two papers discussing mathematical approaches">two papers discussing mathematical approaches</option>
+                                
+                                    <option value="A GCHQ mathematician , " who identified himself only as Richard">A GCHQ mathematician , " who identified himself only as Richard</option>
+                                
+                                    <option value="that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85">that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85</option>
+                                
+                                    <option value="Richard">Richard</option>
+                                
+                                    <option value="that GCHQ had now " squeezed the juice " out of the two papers and was " happy for them to be released into the public domain "">that GCHQ had now " squeezed the juice " out of the two papers and was " happy for them to be released into the public domain "</option>
+                                
+                                    <option value="a reputation for eccentricity at Bletchley Park">a reputation for eccentricity at Bletchley Park</option>
+                                
+                                    <option value="we">we</option>
+                                
+                                    <option value="that we ourselves could have created such concepts and originated such thoughts">that we ourselves could have created such concepts and originated such thoughts</option>
+                                
+                                    <option value="one">one</option>
+                                
+                                    <option value="that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement">that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement</option>
+                                
+                                    <option value="official war historian Harry Hinsley">official war historian Harry Hinsley</option>
+                                
+                                    <option value="that this work shortened the war in Europe by more than two years">that this work shortened the war in Europe by more than two years</option>
+                                
+                                    <option value="that this did not account for the use of the atomic bomb and other eventualities.[98">that this did not account for the use of the atomic bomb and other eventualities.[98</option>
+                                
+                                    <option value="an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived">an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived</option>
+                                
+                                    <option value="The bombe">The bombe</option>
+                                
+                                    <option value="one of the primary tools">one of the primary tools</option>
+                                
+                                    <option value="Most of the possible settings">Most of the possible settings</option>
+                                
+                                    <option value="contradictions">contradictions</option>
+                                
+                                    <option value="They">They</option>
+                                
+                                    <option value="a good working system for decrypting Enigma signals">a good working system for decrypting Enigma signals</option>
+                                
+                                    <option value="more resources">more resources</option>
+                                
+                                    <option value="how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ]">how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ]</option>
+                                
+                                    <option value="This letter">This letter</option>
+                                
+                                    <option value="an electric effect">an electric effect</option>
+                                
+                                    <option value="Churchill">Churchill</option>
+                                
+                                    <option value="a memo">a memo</option>
+                                
+                                    <option value="the chief of the secret service">the chief of the secret service</option>
+                                
+                                    <option value="as Milner - Barry recalled , " All that we did notice was that almost from that day the rough ways began miraculously to be made smooth">as Milner - Barry recalled , " All that we did notice was that almost from that day the rough ways began miraculously to be made smooth</option>
+                                
+                                    <option value="the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ]">the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ]</option>
+                                
+                                    <option value="a measure of weight of evidence that he called the ban">a measure of weight of evidence that he called the ban</option>
+                                
+                                    <option value="Banburismus">Banburismus</option>
+                                
+                                    <option value="certain sequences of the Enigma rotors">certain sequences of the Enigma rotors</option>
+                                
+                                    <option value="their Computing Machine Laboratory">their Computing Machine Laboratory</option>
+                                
+                                    <option value="Hugh Alexander">Hugh Alexander</option>
+                                
+                                    <option value="the position of head of Hut 8">the position of head of Hut 8</option>
+                                
+                                    <option value="a technique termed Turingery ( or jokingly Turingismus[121 ] )">a technique termed Turingery ( or jokingly Turingismus[121 ] )</option>
+                                
+                                    <option value="the Tunny team">the Tunny team</option>
+                                
+                                    <option value="his knowledge of electronics with the assistance of REME officer Donald Bayley">his knowledge of electronics with the assistance of REME officer Donald Bayley</option>
+                                
+                                    <option value="The machine was intended for different applications">The machine was intended for different applications</option>
+                                
+                                    <option value="Von Neumann 's incomplete First Draft of a Report on the EDVAC had predated Turing 's paper">Von Neumann 's incomplete First Draft of a Report on the EDVAC had predated Turing 's paper</option>
+                                
+                                    <option value="the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park">the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park</option>
+                                
+                                    <option value="it impossible">it impossible</option>
+                                
+                                    <option value="its first program">its first program</option>
+                                
+                                    <option value="place">place</option>
+                                
+                                    <option value="The interrogation">The interrogation</option>
+                                
+                                    <option value="the form of a colloquium">the form of a colloquium</option>
+                                
+                                    <option value="the first version of the Programmer 's Manual for this machine">the first version of the Programmer 's Manual for this machine</option>
+                                
+                                    <option value="that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child 's mind and then to subject it to a course of education">that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child 's mind and then to subject it to a course of education</option>
+                                
+                                    <option value="that a system of chemicals reacting with each other and diffusing across space , termed a reaction ¨C diffusion system , could account for " the main phenomena of morphogenesis".[151 ]">that a system of chemicals reacting with each other and diffusing across space , termed a reaction ¨C diffusion system , could account for " the main phenomena of morphogenesis".[151 ]</option>
+                                
+                                    <option value="systems of partial differential equations">systems of partial differential equations</option>
+                                
+                                    <option value="that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations">that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations</option>
+                                
+                                    <option value="that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A.">that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A.</option>
+                                
+                                    <option value="you">you</option>
+                                
+                                    <option value="some regions where A dominated and some where B did">some regions where A dominated and some where B did</option>
+                                
+                                    <option value="a powerful computer">a powerful computer</option>
+                                
+                                    <option value="These calculations">These calculations</option>
+                                
+                                    <option value="the right qualitative results">the right qualitative results</option>
+                                
+                                    <option value="The Russian biochemist Boris Belousov">The Russian biochemist Boris Belousov</option>
+                                
+                                    <option value="experiments with similar results">experiments with similar results</option>
+                                
+                                    <option value="A study conducted in 2023">A study conducted in 2023</option>
+                                
+                                    <option value="Turing 's mathematical model hypothesis">Turing 's mathematical model hypothesis</option>
+                                
+                                    <option value="the experiment">the experiment</option>
+                                
+                                    <option value="growing chia seeds">growing chia seeds</option>
+                                
+                                    <option value="Researchers">Researchers</option>
+                                
+                                    <option value="patterns resembling those seen in natural environments emerged">patterns resembling those seen in natural environments emerged</option>
+                                
+                                    <option value="that he was unable to break his own code describing where exactly he had hidden them">that he was unable to break his own code describing where exactly he had hidden them</option>
+                                
+                                    <option value="This">This</option>
+                                
+                                    <option value="that he never regained the silver.[164">that he never regained the silver.[164</option>
+                                
+                                    <option value="a sexual relationship with Murray">a sexual relationship with Murray</option>
+                                
+                                    <option value="The treatment rendered Turing impotent and">The treatment rendered Turing impotent and</option>
+                                
+                                    <option value="breast tissue">breast tissue</option>
+                                
+                                    <option value="that " no doubt I shall emerge from it all a different man , but quite who I 've not found out".[176][177 ] Murray was given a conditional discharge.[178 ] Turing 's conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC&CS in 1946 , though he kept his academic post">that " no doubt I shall emerge from it all a different man , but quite who I 've not found out".[176][177 ] Murray was given a conditional discharge.[178 ] Turing 's conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC&CS in 1946 , though he kept his academic post</option>
+                                
+                                    <option value="His trial">His trial</option>
+                                
+                                    <option value="Norway which was more tolerant of homosexuals">Norway which was more tolerant of homosexuals</option>
+                                
+                                    <option value="Turing 's housekeeper">Turing 's housekeeper</option>
+                                
+                                    <option value="A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ]">A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ]</option>
+                                
+                                    <option value="Turing 's brother , John ,">Turing 's brother , John ,</option>
+                                
+                                    <option value="the body">the body</option>
+                                
+                                    <option value="the following day , which determined the cause of death to be suicide.[174 ]">the following day , which determined the cause of death to be suicide.[174 ]</option>
+                                
+                                    <option value="His nephew , writer Dermot Turing ,">His nephew , writer Dermot Turing ,</option>
+                                
+                                    <option value="that his conviction or hormone treatment had anything to do with his suicide">that his conviction or hormone treatment had anything to do with his suicide</option>
+                                
+                                    <option value="that the conviction ended in 1952 and the treatment the following year">that the conviction ended in 1952 and the treatment the following year</option>
+                                
+                                    <option value="no physiological evidence">no physiological evidence</option>
+                                
+                                    <option value="that the treatment had any impact on his uncle 's mental health">that the treatment had any impact on his uncle 's mental health</option>
+                                
+                                    <option value="She">She</option>
+                                
+                                    <option value="the verdict of suicide.[187">the verdict of suicide.[187</option>
+                                
+                                    <option value="an alternative explanation for the cause of Turing 's death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons">an alternative explanation for the cause of Turing 's death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons</option>
+                                
+                                    <option value="such an apparatus set up in his tiny spare room">such an apparatus set up in his tiny spare room</option>
+                                
+                                    <option value="Copeland">Copeland</option>
+                                
+                                    <option value="that the autopsy findings were more consistent with inhalation than with ingestion of the poison">that the autopsy findings were more consistent with inhalation than with ingestion of the poison</option>
+                                
+                                    <option value="his legal setbacks and hormone treatment ( which had been discontinued a year previously">his legal setbacks and hormone treatment ( which had been discontinued a year previously</option>
+                                
+                                    <option value="Turing biographer Andrew Hodges">Turing biographer Andrew Hodges</option>
+                                
+                                    <option value="who , in his review of Hodges ' book , recalls " Turing 's vulnerable position in the Cold War political climate " and points out that " Turing was found dead by a maid , who discovered him ' lying neatly in his bed'¡ªhardly">who , in his review of Hodges ' book , recalls " Turing 's vulnerable position in the Cold War political climate " and points out that " Turing was found dead by a maid , who discovered him ' lying neatly in his bed'¡ªhardly</option>
+                                
+                                    <option value="Both men">Both men</option>
+                                
+                                    <option value="] It has also been suggested that Turing 's belief in fortune - telling may have caused his depressed mood.[192 ]">] It has also been suggested that Turing 's belief in fortune - telling may have caused his depressed mood.[192 ]</option>
+                                
+                                    <option value="that he would be a genius">that he would be a genius</option>
+                                
+                                    <option value="it would be a good idea to go to the Pleasure Beach at Blackpool">it would be a good idea to go to the Pleasure Beach at Blackpool</option>
+                                
+                                    <option value="a fortune - teller 's tent">a fortune - teller 's tent</option>
+                                
+                                    <option value="what the fortune - teller said">what the fortune - teller said</option>
+                                
+                                    <option value="British programmer John Graham - Cumming">British programmer John Graham - Cumming</option>
+                                
+                                    <option value="a petition urging the British government to apologise for Turing 's prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ]">a petition urging the British government to apologise for Turing 's prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ]</option>
+                                
+                                    <option value="the petition">the petition</option>
+                                
+                                    <option value="so much better.[201][204">so much better.[201][204</option>
+                                
+                                    <option value="himself">himself</option>
+                                
+                                    <option value="a shame on the British government and British history">a shame on the British government and British history</option>
+                                
+                                    <option value="over 37,000 signatures,[205][207">over 37,000 signatures,[205][207</option>
+                                
+                                    <option value="that his offence was against the law and that he would be prosecuted">that his offence was against the law and that he would be prosecuted</option>
+                                
+                                    <option value="the law">the law</option>
+                                
+                                    <option value="a prosecution">a prosecution</option>
+                                
+                                    <option value="Leech">Leech</option>
+                                
+                                    <option value="that Turing 's contribution to the war made him a national hero and that it was " ultimately just embarrassing " that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ]">that Turing 's contribution to the war made him a national hero and that it was " ultimately just embarrassing " that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ]</option>
+                                
+                                    <option value="Lord Chancellor Chris Grayling">Lord Chancellor Chris Grayling</option>
+                                
+                                    <option value="Turing deserved to be " remembered and recognised for his fantastic contribution to the war effort " and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ]">Turing deserved to be " remembered and recognised for his fantastic contribution to the war effort " and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ]</option>
+                                
+                                    <option value="the government">the government</option>
+                                
+                                    <option value="its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an " Alan Turing law".[227][228">its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an " Alan Turing law".[227][228</option>
+                                
+                                    <option value="The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing 's pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace">The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing 's pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace</option>
+                                
+                                    <option value="Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as " probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war">Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as " probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+              <div id="filter-menu" class="card-header">
+                <div class="row no-gutters">
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'item')"
+                            id="select-item"
+                        >
+                        <option value="">Select a network item</option>
+                        <option value="edge">edge</option>
+                        <option value="node">node</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="updateFilter(value, 'property')"
+                            id="select-property"
+                        >
+                        <option value="">Select a property...</option>
+                    </select>
+                  </div>
+                  <div class="col-3 pb-2">
+                    <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            id="select-value"
+                        >
+                        <option value="">Select value(s)...</option>
+                    </select>
+                  </div>
+                  <div class="col-1 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="highlightFilter(filter);">Filter</button>
+                  </div>
+                  <div class="col-2 pb-2">
+                    <button type="button" class="btn btn-primary btn-block" onclick="clearFilter(true)">Reset Selection</button>
+                  </div>
+                </div>
+              </div>
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+                  // explicitly using onItemAdd and this function as we need to save multiple values
+                  let updateValueFilter = function() {
+                      return function () {
+                      filter['value'].push(arguments[0])
+                      }
+                  }
+
+                  let valueControl = new TomSelect("#select-value",{
+                      maxItems: null,
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: updateValueFilter()
+                  });
+
+                  let addValues = function() {
+                      return function () {
+                          // clear the current value options and add the selected attribute values
+                          // tom-select handles duplicates
+                          let selectedProperty = arguments[0];
+                          valueControl.clear();
+                          valueControl.clearOptions();
+                          filter['value'] = []
+                          if (filter['item'] === 'node') {
+                              for (let each in allNodes) {
+                                  valueControl.addOption({
+                                      id:allNodes[each][selectedProperty],
+                                      title:allNodes[each][selectedProperty]
+                                  })
+                              }
+                          }
+                          else if (filter['item'] === 'edge') {
+                              for (let each in allEdges) {
+                                  valueControl.addOption({
+                                      id:allEdges[each][selectedProperty],
+                                      title:allEdges[each][selectedProperty]
+                                  })
+                              }
+                          }
+                      }
+                  };
+
+                  let propControl = new TomSelect("#select-property",{
+                      valueField: 'id',
+                      labelField: 'title',
+                      searchField: 'title',
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addValues()
+                  });
+
+                  let addProperties = function() {
+                      return function () {
+                          // loops through the selected network item and adds the attributes to dropdown
+                          // tom-select handles duplicates
+                          clearFilter(false)
+                          if (arguments[0] === 'edge') {
+                              for (let each in allEdges) {
+                                  if (allEdges.hasOwnProperty(each)) {
+                                      for (let eachProp in allEdges[each]) {
+                                          if (allEdges[each].hasOwnProperty(eachProp)) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                          else if (arguments[0] === 'node') {
+                              for (let each in allNodes) {
+                                  if (allNodes.hasOwnProperty(each)) {
+                                      for (let eachProp in allNodes[each]) {
+                                          if (allNodes[each].hasOwnProperty(eachProp)
+                                              && (eachProp !== 'hidden' && eachProp !== 'savedLabel'
+                                                  && eachProp !== 'hiddenLabel')) {
+                                              propControl.addOption({id: eachProp, title: eachProp})
+
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  };
+
+                  let itemControl = new TomSelect("#select-item",{
+                      create: false,
+                      sortField:{
+                          field: "text",
+                          direction: "asc"
+                      },
+                      onItemAdd: addProperties()
+                  });
+
+                  function clearFilter(reset) {
+                      // utility function to clear all the selected filter options
+                      // if reset is set to true, the existing filter will be removed
+                      // else, only the dropdown options are cleared
+                      propControl.clear();
+                      propControl.clearOptions();
+                      valueControl.clear();
+                      valueControl.clearOptions();
+                      filter = {
+                          item : '',
+                          property : '',
+                          value : []
+                      }
+                      if (reset) {
+                          itemControl.clear();
+                          filterHighlight({nodes: []})
+                      }
+                  }
+
+                  function updateFilter(value, key) {
+                      // key could be 'item' or 'property' and value is as selected in dropdown
+                      filter[key] = value
+                  }
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6600", "font": {"color": "white"}, "id": "He", "label": "He", "shape": "dot", "size": 96, "title": "Entity: He | Links: 27"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the section responsible for German naval cryptanalysis", "label": "the section responsible for German naval cryptanalysis", "shape": "dot", "size": 18, "title": "Entity: the section responsible for German naval cryptanalysis | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a crucial role in cracking", "label": "a crucial role in cracking", "shape": "dot", "size": 18, "title": "Entity: a crucial role in cracking | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing", "label": "Turing", "shape": "dot", "size": 72, "title": "Entity: Turing | Links: 19"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "Max Newman \u0027s Computing Machine Laboratory", "label": "Max Newman \u0027s Computing Machine Laboratory", "shape": "dot", "size": 18, "title": "Entity: Max Newman \u0027s Computing Machine Laboratory | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison", "label": "hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison", "shape": "dot", "size": 18, "title": "Entity: hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The inquest", "label": "The inquest", "shape": "dot", "size": 21, "title": "Entity: The inquest | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his death as suicide", "label": "his death as suicide", "shape": "dot", "size": 18, "title": "Entity: his death as suicide | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "British prime minister Gordon Brown", "label": "British prime minister Gordon Brown", "shape": "dot", "size": 21, "title": "Entity: British prime minister Gordon Brown | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "an official public apology", "label": "an official public apology", "shape": "dot", "size": 18, "title": "Entity: an official public apology | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Queen Elizabeth II", "label": "Queen Elizabeth II", "shape": "dot", "size": 18, "title": "Entity: Queen Elizabeth II | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a pardon", "label": "a pardon", "shape": "dot", "size": 18, "title": "Entity: a pardon | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "The term \" Alan Turing law \"", "label": "The term \" Alan Turing law \"", "shape": "dot", "size": 18, "title": "Entity: The term \" Alan Turing law \" | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation", "label": "that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation", "shape": "dot", "size": 18, "title": "Entity: that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Julius \u0027s work with the ICS", "label": "Julius \u0027s work with the ICS", "shape": "dot", "size": 18, "title": "Entity: Julius \u0027s work with the ICS | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the family", "label": "the family", "shape": "dot", "size": 18, "title": "Entity: the family | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "Natural Wonders", "label": "Natural Wonders", "shape": "dot", "size": 18, "title": "Entity: Natural Wonders | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "It", "label": "It", "shape": "dot", "size": 30, "title": "Entity: It | Links: 5"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s parents", "label": "Turing \u0027s parents", "shape": "dot", "size": 21, "title": "Entity: Turing \u0027s parents | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a house in Guildford", "label": "a house in Guildford", "shape": "dot", "size": 18, "title": "Entity: a house in Guildford | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "him", "label": "him", "shape": "dot", "size": 18, "title": "Entity: him | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The headmistress", "label": "The headmistress", "shape": "dot", "size": 18, "title": "Entity: The headmistress | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his talent", "label": "his talent", "shape": "dot", "size": 18, "title": "Entity: his talent | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House", "label": "an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House", "shape": "dot", "size": 18, "title": "Entity: an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s natural inclination towards mathematics and science", "label": "Turing \u0027s natural inclination towards mathematics and science", "shape": "dot", "size": 18, "title": "Entity: Turing \u0027s natural inclination towards mathematics and science | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics", "label": "respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics", "shape": "dot", "size": 18, "title": "Entity: respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "His headmaster", "label": "His headmaster", "shape": "dot", "size": 18, "title": "Entity: His headmaster | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "I hope he will not fall between two stools", "label": "I hope he will not fall between two stools", "shape": "dot", "size": 18, "title": "Entity: I hope he will not fall between two stools | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited", "label": "I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited", "shape": "dot", "size": 18, "title": "Entity: I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "I expect you will be thinking of Chris when this reaches you", "label": "I expect you will be thinking of Chris when this reaches you", "shape": "dot", "size": 18, "title": "Entity: I expect you will be thinking of Chris when this reaches you | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Some", "label": "Some", "shape": "dot", "size": 18, "title": "Entity: Some | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death", "label": "Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death", "shape": "dot", "size": 18, "title": "Entity: Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "His dissertation", "label": "His dissertation", "shape": "dot", "size": 18, "title": "Entity: His dissertation | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a version of the central limit", "label": "a version of the central limit", "shape": "dot", "size": 18, "title": "Entity: a version of the central limit | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) ,", "label": "his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) ,", "shape": "dot", "size": 18, "title": "Entity: his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) , | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the committee", "label": "the committee", "shape": "dot", "size": 18, "title": "Entity: the committee | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s methods original and so regarded the work worthy of consideration for the fellowship", "label": "Turing \u0027s methods original and so regarded the work worthy of consideration for the fellowship", "shape": "dot", "size": 18, "title": "Entity: Turing \u0027s methods original and so regarded the work worthy of consideration for the fellowship | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the first draft typescript of his investigations", "label": "the first draft typescript of his investigations", "shape": "dot", "size": 18, "title": "Entity: the first draft typescript of his investigations | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Church", "label": "Church", "shape": "dot", "size": 18, "title": "Entity: Church | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his An Unsolvable Problem of Elementary Number Theory", "label": "his An Unsolvable Problem of Elementary Number Theory", "shape": "dot", "size": 18, "title": "Entity: his An Unsolvable Problem of Elementary Number Theory | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that his \" universal computing machine \" would be capable of performing any conceivable mathematical computation if it were representable as an algorithm", "label": "that his \" universal computing machine \" would be capable of performing any conceivable mathematical computation if it were representable as an algorithm", "shape": "dot", "size": 18, "title": "Entity: that his \" universal computing machine \" would be capable of performing any conceivable mathematical computation if it were representable as an algorithm | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "a notion of a \u0027 Universal Machine \u0027 ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church \u0027s lambda calculus )", "label": "a notion of a \u0027 Universal Machine \u0027 ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church \u0027s lambda calculus )", "shape": "dot", "size": 18, "title": "Entity: a notion of a \u0027 Universal Machine \u0027 ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church \u0027s lambda calculus ) | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "John von Neumann", "label": "John von Neumann", "shape": "dot", "size": 18, "title": "Entity: John von Neumann | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "that the central concept of the modern computer was due to Turing \u0027s paper.[65 ]", "label": "that the central concept of the modern computer was due to Turing \u0027s paper.[65 ]", "shape": "dot", "size": 18, "title": "Entity: that the central concept of the modern computer was due to Turing \u0027s paper.[65 ] | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "cryptology", "label": "cryptology", "shape": "dot", "size": 18, "title": "Entity: cryptology | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ]", "label": "lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ]", "shape": "dot", "size": 18, "title": "Entity: lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ] | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The historian and wartime codebreaker Asa Briggs", "label": "The historian and wartime codebreaker Asa Briggs", "shape": "dot", "size": 18, "title": "Entity: The historian and wartime codebreaker Asa Briggs | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "You needed exceptional talent , you needed genius at Bletchley and Turing \u0027s was that genius", "label": "You needed exceptional talent , you needed genius at Bletchley and Turing \u0027s was that genius", "shape": "dot", "size": 18, "title": "Entity: You needed exceptional talent , you needed genius at Bletchley and Turing \u0027s was that genius | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the British codebreaking organisation", "label": "the British codebreaking organisation", "shape": "dot", "size": 18, "title": "Entity: the British codebreaking organisation | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "an innovative contribution to the subject", "label": "an innovative contribution to the subject", "shape": "dot", "size": 18, "title": "Entity: an innovative contribution to the subject | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "two papers discussing mathematical approaches", "label": "two papers discussing mathematical approaches", "shape": "dot", "size": 18, "title": "Entity: two papers discussing mathematical approaches | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "A GCHQ mathematician , \" who identified himself only as Richard", "label": "A GCHQ mathematician , \" who identified himself only as Richard", "shape": "dot", "size": 18, "title": "Entity: A GCHQ mathematician , \" who identified himself only as Richard | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85", "label": "that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85", "shape": "dot", "size": 18, "title": "Entity: that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85 | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Richard", "label": "Richard", "shape": "dot", "size": 18, "title": "Entity: Richard | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that GCHQ had now \" squeezed the juice \" out of the two papers and was \" happy for them to be released into the public domain \"", "label": "that GCHQ had now \" squeezed the juice \" out of the two papers and was \" happy for them to be released into the public domain \"", "shape": "dot", "size": 18, "title": "Entity: that GCHQ had now \" squeezed the juice \" out of the two papers and was \" happy for them to be released into the public domain \" | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a reputation for eccentricity at Bletchley Park", "label": "a reputation for eccentricity at Bletchley Park", "shape": "dot", "size": 18, "title": "Entity: a reputation for eccentricity at Bletchley Park | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "we", "label": "we", "shape": "dot", "size": 27, "title": "Entity: we | Links: 4"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that we ourselves could have created such concepts and originated such thoughts", "label": "that we ourselves could have created such concepts and originated such thoughts", "shape": "dot", "size": 18, "title": "Entity: that we ourselves could have created such concepts and originated such thoughts | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "one", "label": "one", "shape": "dot", "size": 18, "title": "Entity: one | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement", "label": "that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement", "shape": "dot", "size": 18, "title": "Entity: that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "official war historian Harry Hinsley", "label": "official war historian Harry Hinsley", "shape": "dot", "size": 18, "title": "Entity: official war historian Harry Hinsley | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that this work shortened the war in Europe by more than two years", "label": "that this work shortened the war in Europe by more than two years", "shape": "dot", "size": 18, "title": "Entity: that this work shortened the war in Europe by more than two years | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that this did not account for the use of the atomic bomb and other eventualities.[98", "label": "that this did not account for the use of the atomic bomb and other eventualities.[98", "shape": "dot", "size": 18, "title": "Entity: that this did not account for the use of the atomic bomb and other eventualities.[98 | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived", "label": "an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived", "shape": "dot", "size": 18, "title": "Entity: an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The bombe", "label": "The bombe", "shape": "dot", "size": 18, "title": "Entity: The bombe | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "one of the primary tools", "label": "one of the primary tools", "shape": "dot", "size": 18, "title": "Entity: one of the primary tools | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Most of the possible settings", "label": "Most of the possible settings", "shape": "dot", "size": 18, "title": "Entity: Most of the possible settings | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "contradictions", "label": "contradictions", "shape": "dot", "size": 18, "title": "Entity: contradictions | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "They", "label": "They", "shape": "dot", "size": 27, "title": "Entity: They | Links: 4"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a good working system for decrypting Enigma signals", "label": "a good working system for decrypting Enigma signals", "shape": "dot", "size": 18, "title": "Entity: a good working system for decrypting Enigma signals | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "more resources", "label": "more resources", "shape": "dot", "size": 18, "title": "Entity: more resources | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ]", "label": "how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ]", "shape": "dot", "size": 18, "title": "Entity: how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ] | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "This letter", "label": "This letter", "shape": "dot", "size": 18, "title": "Entity: This letter | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "an electric effect", "label": "an electric effect", "shape": "dot", "size": 18, "title": "Entity: an electric effect | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Churchill", "label": "Churchill", "shape": "dot", "size": 18, "title": "Entity: Churchill | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a memo", "label": "a memo", "shape": "dot", "size": 18, "title": "Entity: a memo | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the chief of the secret service", "label": "the chief of the secret service", "shape": "dot", "size": 18, "title": "Entity: the chief of the secret service | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "as Milner - Barry recalled , \" All that we did notice was that almost from that day the rough ways began miraculously to be made smooth", "label": "as Milner - Barry recalled , \" All that we did notice was that almost from that day the rough ways began miraculously to be made smooth", "shape": "dot", "size": 18, "title": "Entity: as Milner - Barry recalled , \" All that we did notice was that almost from that day the rough ways began miraculously to be made smooth | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ]", "label": "the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ]", "shape": "dot", "size": 18, "title": "Entity: the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ] | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a measure of weight of evidence that he called the ban", "label": "a measure of weight of evidence that he called the ban", "shape": "dot", "size": 18, "title": "Entity: a measure of weight of evidence that he called the ban | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Banburismus", "label": "Banburismus", "shape": "dot", "size": 18, "title": "Entity: Banburismus | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "certain sequences of the Enigma rotors", "label": "certain sequences of the Enigma rotors", "shape": "dot", "size": 18, "title": "Entity: certain sequences of the Enigma rotors | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "their Computing Machine Laboratory", "label": "their Computing Machine Laboratory", "shape": "dot", "size": 18, "title": "Entity: their Computing Machine Laboratory | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Hugh Alexander", "label": "Hugh Alexander", "shape": "dot", "size": 18, "title": "Entity: Hugh Alexander | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the position of head of Hut 8", "label": "the position of head of Hut 8", "shape": "dot", "size": 18, "title": "Entity: the position of head of Hut 8 | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "a technique termed Turingery ( or jokingly Turingismus[121 ] )", "label": "a technique termed Turingery ( or jokingly Turingismus[121 ] )", "shape": "dot", "size": 18, "title": "Entity: a technique termed Turingery ( or jokingly Turingismus[121 ] ) | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the Tunny team", "label": "the Tunny team", "shape": "dot", "size": 18, "title": "Entity: the Tunny team | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his knowledge of electronics with the assistance of REME officer Donald Bayley", "label": "his knowledge of electronics with the assistance of REME officer Donald Bayley", "shape": "dot", "size": 18, "title": "Entity: his knowledge of electronics with the assistance of REME officer Donald Bayley | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "The machine was intended for different applications", "label": "The machine was intended for different applications", "shape": "dot", "size": 18, "title": "Entity: The machine was intended for different applications | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Von Neumann \u0027s incomplete First Draft of a Report on the EDVAC had predated Turing \u0027s paper", "label": "Von Neumann \u0027s incomplete First Draft of a Report on the EDVAC had predated Turing \u0027s paper", "shape": "dot", "size": 18, "title": "Entity: Von Neumann \u0027s incomplete First Draft of a Report on the EDVAC had predated Turing \u0027s paper | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park", "label": "the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park", "shape": "dot", "size": 18, "title": "Entity: the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "it impossible", "label": "it impossible", "shape": "dot", "size": 18, "title": "Entity: it impossible | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "its first program", "label": "its first program", "shape": "dot", "size": 18, "title": "Entity: its first program | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "place", "label": "place", "shape": "dot", "size": 21, "title": "Entity: place | Links: 2"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The interrogation", "label": "The interrogation", "shape": "dot", "size": 18, "title": "Entity: The interrogation | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the form of a colloquium", "label": "the form of a colloquium", "shape": "dot", "size": 18, "title": "Entity: the form of a colloquium | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the first version of the Programmer \u0027s Manual for this machine", "label": "the first version of the Programmer \u0027s Manual for this machine", "shape": "dot", "size": 18, "title": "Entity: the first version of the Programmer \u0027s Manual for this machine | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child \u0027s mind and then to subject it to a course of education", "label": "that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child \u0027s mind and then to subject it to a course of education", "shape": "dot", "size": 18, "title": "Entity: that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child \u0027s mind and then to subject it to a course of education | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that a system of chemicals reacting with each other and diffusing across space , termed a reaction \u2013 diffusion system , could account for \" the main phenomena of morphogenesis\".[151 ]", "label": "that a system of chemicals reacting with each other and diffusing across space , termed a reaction \u2013 diffusion system , could account for \" the main phenomena of morphogenesis\".[151 ]", "shape": "dot", "size": 18, "title": "Entity: that a system of chemicals reacting with each other and diffusing across space , termed a reaction \u2013 diffusion system , could account for \" the main phenomena of morphogenesis\".[151 ] | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "systems of partial differential equations", "label": "systems of partial differential equations", "shape": "dot", "size": 18, "title": "Entity: systems of partial differential equations | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations", "label": "that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations", "shape": "dot", "size": 18, "title": "Entity: that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A.", "label": "that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A.", "shape": "dot", "size": 18, "title": "Entity: that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A. | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "you", "label": "you", "shape": "dot", "size": 21, "title": "Entity: you | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "some regions where A dominated and some where B did", "label": "some regions where A dominated and some where B did", "shape": "dot", "size": 18, "title": "Entity: some regions where A dominated and some where B did | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a powerful computer", "label": "a powerful computer", "shape": "dot", "size": 18, "title": "Entity: a powerful computer | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "These calculations", "label": "These calculations", "shape": "dot", "size": 18, "title": "Entity: These calculations | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the right qualitative results", "label": "the right qualitative results", "shape": "dot", "size": 18, "title": "Entity: the right qualitative results | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "The Russian biochemist Boris Belousov", "label": "The Russian biochemist Boris Belousov", "shape": "dot", "size": 18, "title": "Entity: The Russian biochemist Boris Belousov | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "experiments with similar results", "label": "experiments with similar results", "shape": "dot", "size": 18, "title": "Entity: experiments with similar results | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "A study conducted in 2023", "label": "A study conducted in 2023", "shape": "dot", "size": 18, "title": "Entity: A study conducted in 2023 | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s mathematical model hypothesis", "label": "Turing \u0027s mathematical model hypothesis", "shape": "dot", "size": 18, "title": "Entity: Turing \u0027s mathematical model hypothesis | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the experiment", "label": "the experiment", "shape": "dot", "size": 18, "title": "Entity: the experiment | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "growing chia seeds", "label": "growing chia seeds", "shape": "dot", "size": 18, "title": "Entity: growing chia seeds | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Researchers", "label": "Researchers", "shape": "dot", "size": 18, "title": "Entity: Researchers | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "patterns resembling those seen in natural environments emerged", "label": "patterns resembling those seen in natural environments emerged", "shape": "dot", "size": 18, "title": "Entity: patterns resembling those seen in natural environments emerged | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that he was unable to break his own code describing where exactly he had hidden them", "label": "that he was unable to break his own code describing where exactly he had hidden them", "shape": "dot", "size": 18, "title": "Entity: that he was unable to break his own code describing where exactly he had hidden them | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "This", "label": "This", "shape": "dot", "size": 21, "title": "Entity: This | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that he never regained the silver.[164", "label": "that he never regained the silver.[164", "shape": "dot", "size": 18, "title": "Entity: that he never regained the silver.[164 | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a sexual relationship with Murray", "label": "a sexual relationship with Murray", "shape": "dot", "size": 18, "title": "Entity: a sexual relationship with Murray | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "The treatment rendered Turing impotent and", "label": "The treatment rendered Turing impotent and", "shape": "dot", "size": 18, "title": "Entity: The treatment rendered Turing impotent and | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "breast tissue", "label": "breast tissue", "shape": "dot", "size": 18, "title": "Entity: breast tissue | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "that \" no doubt I shall emerge from it all a different man , but quite who I \u0027ve not found out\".[176][177 ] Murray was given a conditional discharge.[178 ] Turing \u0027s conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC\u0026CS in 1946 , though he kept his academic post", "label": "that \" no doubt I shall emerge from it all a different man , but quite who I \u0027ve not found out\".[176][177 ] Murray was given a conditional discharge.[178 ] Turing \u0027s conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC\u0026CS in 1946 , though he kept his academic post", "shape": "dot", "size": 18, "title": "Entity: that \" no doubt I shall emerge from it all a different man , but quite who I \u0027ve not found out\".[176][177 ] Murray was given a conditional discharge.[178 ] Turing \u0027s conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC\u0026CS in 1946 , though he kept his academic post | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "His trial", "label": "His trial", "shape": "dot", "size": 18, "title": "Entity: His trial | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "Norway which was more tolerant of homosexuals", "label": "Norway which was more tolerant of homosexuals", "shape": "dot", "size": 18, "title": "Entity: Norway which was more tolerant of homosexuals | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s housekeeper", "label": "Turing \u0027s housekeeper", "shape": "dot", "size": 18, "title": "Entity: Turing \u0027s housekeeper | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ]", "label": "A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ]", "shape": "dot", "size": 18, "title": "Entity: A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ] | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing \u0027s brother , John ,", "label": "Turing \u0027s brother , John ,", "shape": "dot", "size": 18, "title": "Entity: Turing \u0027s brother , John , | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the body", "label": "the body", "shape": "dot", "size": 18, "title": "Entity: the body | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the following day , which determined the cause of death to be suicide.[174 ]", "label": "the following day , which determined the cause of death to be suicide.[174 ]", "shape": "dot", "size": 18, "title": "Entity: the following day , which determined the cause of death to be suicide.[174 ] | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "His nephew , writer Dermot Turing ,", "label": "His nephew , writer Dermot Turing ,", "shape": "dot", "size": 18, "title": "Entity: His nephew , writer Dermot Turing , | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that his conviction or hormone treatment had anything to do with his suicide", "label": "that his conviction or hormone treatment had anything to do with his suicide", "shape": "dot", "size": 18, "title": "Entity: that his conviction or hormone treatment had anything to do with his suicide | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that the conviction ended in 1952 and the treatment the following year", "label": "that the conviction ended in 1952 and the treatment the following year", "shape": "dot", "size": 18, "title": "Entity: that the conviction ended in 1952 and the treatment the following year | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "no physiological evidence", "label": "no physiological evidence", "shape": "dot", "size": 18, "title": "Entity: no physiological evidence | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that the treatment had any impact on his uncle \u0027s mental health", "label": "that the treatment had any impact on his uncle \u0027s mental health", "shape": "dot", "size": 18, "title": "Entity: that the treatment had any impact on his uncle \u0027s mental health | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "She", "label": "She", "shape": "dot", "size": 18, "title": "Entity: She | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the verdict of suicide.[187", "label": "the verdict of suicide.[187", "shape": "dot", "size": 18, "title": "Entity: the verdict of suicide.[187 | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "an alternative explanation for the cause of Turing \u0027s death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons", "label": "an alternative explanation for the cause of Turing \u0027s death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons", "shape": "dot", "size": 18, "title": "Entity: an alternative explanation for the cause of Turing \u0027s death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "such an apparatus set up in his tiny spare room", "label": "such an apparatus set up in his tiny spare room", "shape": "dot", "size": 18, "title": "Entity: such an apparatus set up in his tiny spare room | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Copeland", "label": "Copeland", "shape": "dot", "size": 18, "title": "Entity: Copeland | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that the autopsy findings were more consistent with inhalation than with ingestion of the poison", "label": "that the autopsy findings were more consistent with inhalation than with ingestion of the poison", "shape": "dot", "size": 18, "title": "Entity: that the autopsy findings were more consistent with inhalation than with ingestion of the poison | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "his legal setbacks and hormone treatment ( which had been discontinued a year previously", "label": "his legal setbacks and hormone treatment ( which had been discontinued a year previously", "shape": "dot", "size": 18, "title": "Entity: his legal setbacks and hormone treatment ( which had been discontinued a year previously | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing biographer Andrew Hodges", "label": "Turing biographer Andrew Hodges", "shape": "dot", "size": 18, "title": "Entity: Turing biographer Andrew Hodges | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "who , in his review of Hodges \u0027 book , recalls \" Turing \u0027s vulnerable position in the Cold War political climate \" and points out that \" Turing was found dead by a maid , who discovered him \u0027 lying neatly in his bed\u0027\u2014hardly", "label": "who , in his review of Hodges \u0027 book , recalls \" Turing \u0027s vulnerable position in the Cold War political climate \" and points out that \" Turing was found dead by a maid , who discovered him \u0027 lying neatly in his bed\u0027\u2014hardly", "shape": "dot", "size": 18, "title": "Entity: who , in his review of Hodges \u0027 book , recalls \" Turing \u0027s vulnerable position in the Cold War political climate \" and points out that \" Turing was found dead by a maid , who discovered him \u0027 lying neatly in his bed\u0027\u2014hardly | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Both men", "label": "Both men", "shape": "dot", "size": 18, "title": "Entity: Both men | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "] It has also been suggested that Turing \u0027s belief in fortune - telling may have caused his depressed mood.[192 ]", "label": "] It has also been suggested that Turing \u0027s belief in fortune - telling may have caused his depressed mood.[192 ]", "shape": "dot", "size": 18, "title": "Entity: ] It has also been suggested that Turing \u0027s belief in fortune - telling may have caused his depressed mood.[192 ] | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that he would be a genius", "label": "that he would be a genius", "shape": "dot", "size": 18, "title": "Entity: that he would be a genius | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "it would be a good idea to go to the Pleasure Beach at Blackpool", "label": "it would be a good idea to go to the Pleasure Beach at Blackpool", "shape": "dot", "size": 18, "title": "Entity: it would be a good idea to go to the Pleasure Beach at Blackpool | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a fortune - teller \u0027s tent", "label": "a fortune - teller \u0027s tent", "shape": "dot", "size": 18, "title": "Entity: a fortune - teller \u0027s tent | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "what the fortune - teller said", "label": "what the fortune - teller said", "shape": "dot", "size": 18, "title": "Entity: what the fortune - teller said | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "British programmer John Graham - Cumming", "label": "British programmer John Graham - Cumming", "shape": "dot", "size": 18, "title": "Entity: British programmer John Graham - Cumming | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "a petition urging the British government to apologise for Turing \u0027s prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ]", "label": "a petition urging the British government to apologise for Turing \u0027s prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ]", "shape": "dot", "size": 18, "title": "Entity: a petition urging the British government to apologise for Turing \u0027s prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ] | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "the petition", "label": "the petition", "shape": "dot", "size": 21, "title": "Entity: the petition | Links: 2"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "so much better.[201][204", "label": "so much better.[201][204", "shape": "dot", "size": 18, "title": "Entity: so much better.[201][204 | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "himself", "label": "himself", "shape": "dot", "size": 18, "title": "Entity: himself | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a shame on the British government and British history", "label": "a shame on the British government and British history", "shape": "dot", "size": 18, "title": "Entity: a shame on the British government and British history | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "over 37,000 signatures,[205][207", "label": "over 37,000 signatures,[205][207", "shape": "dot", "size": 18, "title": "Entity: over 37,000 signatures,[205][207 | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "that his offence was against the law and that he would be prosecuted", "label": "that his offence was against the law and that he would be prosecuted", "shape": "dot", "size": 18, "title": "Entity: that his offence was against the law and that he would be prosecuted | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the law", "label": "the law", "shape": "dot", "size": 18, "title": "Entity: the law | Links: 1"}, {"color": "#ffbb00", "font": {"color": "white"}, "id": "a prosecution", "label": "a prosecution", "shape": "dot", "size": 18, "title": "Entity: a prosecution | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Leech", "label": "Leech", "shape": "dot", "size": 18, "title": "Entity: Leech | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "that Turing \u0027s contribution to the war made him a national hero and that it was \" ultimately just embarrassing \" that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ]", "label": "that Turing \u0027s contribution to the war made him a national hero and that it was \" ultimately just embarrassing \" that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ]", "shape": "dot", "size": 18, "title": "Entity: that Turing \u0027s contribution to the war made him a national hero and that it was \" ultimately just embarrassing \" that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ] | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "Lord Chancellor Chris Grayling", "label": "Lord Chancellor Chris Grayling", "shape": "dot", "size": 18, "title": "Entity: Lord Chancellor Chris Grayling | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing deserved to be \" remembered and recognised for his fantastic contribution to the war effort \" and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ]", "label": "Turing deserved to be \" remembered and recognised for his fantastic contribution to the war effort \" and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ]", "shape": "dot", "size": 18, "title": "Entity: Turing deserved to be \" remembered and recognised for his fantastic contribution to the war effort \" and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ] | Links: 1"}, {"color": "#ff6600", "font": {"color": "white"}, "id": "the government", "label": "the government", "shape": "dot", "size": 18, "title": "Entity: the government | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an \" Alan Turing law\".[227][228", "label": "its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an \" Alan Turing law\".[227][228", "shape": "dot", "size": 18, "title": "Entity: its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an \" Alan Turing law\".[227][228 | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing \u0027s pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace", "label": "The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing \u0027s pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace", "shape": "dot", "size": 18, "title": "Entity: The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing \u0027s pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace | Links: 1"}, {"color": "#00f2ff", "font": {"color": "white"}, "id": "Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as \" probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war", "label": "Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as \" probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war", "shape": "dot", "size": 18, "title": "Entity: Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as \" probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war | Links: 1"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#555555", "from": "He", "label": "lead", "title": "Relation: lead", "to": "the section responsible for German naval cryptanalysis"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "play", "title": "Relation: play", "to": "a crucial role in cracking"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "join", "title": "Relation: join", "to": "Max Newman \u0027s Computing Machine Laboratory"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "accept", "title": "Relation: accept", "to": "hormone treatment , a procedure commonly referred to as chemical castration , as an alternative to prison"}, {"arrows": "to", "color": "#555555", "from": "The inquest", "label": "determine", "title": "Relation: determine", "to": "his death as suicide"}, {"arrows": "to", "color": "#555555", "from": "British prime minister Gordon Brown", "label": "make", "title": "Relation: make", "to": "an official public apology"}, {"arrows": "to", "color": "#555555", "from": "Queen Elizabeth II", "label": "grant", "title": "Relation: grant", "to": "a pardon"}, {"arrows": "to", "color": "#555555", "from": "The term \" Alan Turing law \"", "label": "use", "title": "Relation: use", "to": "that outlawed homosexual acts.[16 ] Turing left an extensive legacy in mathematics and computing which has become widely recognised with statues and many things named after him , including an annual award for computing innovation"}, {"arrows": "to", "color": "#555555", "from": "Julius \u0027s work with the ICS", "label": "bring", "title": "Relation: bring", "to": "the family"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "discover", "title": "Relation: discover", "to": "Natural Wonders"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "credit", "title": "Relation: credit", "to": "It"}, {"arrows": "to", "color": "#555555", "from": "Turing \u0027s parents", "label": "purchase", "title": "Relation: purchase", "to": "a house in Guildford"}, {"arrows": "to", "color": "#555555", "from": "Turing \u0027s parents", "label": "enrol", "title": "Relation: enrol", "to": "him"}, {"arrows": "to", "color": "#555555", "from": "The headmistress", "label": "recognise", "title": "Relation: recognise", "to": "his talent"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "go", "title": "Relation: go", "to": "an independent boarding school in the market town of Sherborne in Dorset , where he boarded at Westcott House"}, {"arrows": "to", "color": "#555555", "from": "Turing \u0027s natural inclination towards mathematics and science", "label": "earn", "title": "Relation: earn", "to": "respect from some of the teachers at Sherborne , whose definition of education placed more emphasis on the classics"}, {"arrows": "to", "color": "#555555", "from": "His headmaster", "label": "write", "title": "Relation: write", "to": "I hope he will not fall between two stools"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "grasp", "title": "Relation: grasp", "to": "It"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "write", "title": "Relation: write", "to": "I am sure I could not have found anywhere another companion so brilliant and yet so charming and unconceited"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "write", "title": "Relation: write", "to": "I expect you will be thinking of Chris when this reaches you"}, {"arrows": "to", "color": "#555555", "from": "Some", "label": "speculate", "title": "Relation: speculate", "to": "Apparently , at this point in his life he still believed in such concepts as a spirit , independent of the body and surviving death"}, {"arrows": "to", "color": "#555555", "from": "His dissertation", "label": "prove", "title": "Relation: prove", "to": "a version of the central limit"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "publish", "title": "Relation: publish", "to": "his first paper , a one - page article called Equivalence of left and right almost periodicity ( sent on 23 April ) ,"}, {"arrows": "to", "color": "#555555", "from": "the committee", "label": "find", "title": "Relation: find", "to": "Turing \u0027s methods original and so regarded the work worthy of consideration for the fellowship"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "send", "title": "Relation: send", "to": "the first draft typescript of his investigations"}, {"arrows": "to", "color": "#555555", "from": "Church", "label": "publish", "title": "Relation: publish", "to": "his An Unsolvable Problem of Elementary Number Theory"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "prove", "title": "Relation: prove", "to": "that his \" universal computing machine \" would be capable of performing any conceivable mathematical computation if it were representable as an algorithm"}, {"arrows": "to", "color": "#555555", "from": "It", "label": "include", "title": "Relation: include", "to": "a notion of a \u0027 Universal Machine \u0027 ( now known as a universal Turing machine ) , with the idea that such a machine could perform the tasks of any other computation machine ( as indeed could Church \u0027s lambda calculus )"}, {"arrows": "to", "color": "#555555", "from": "John von Neumann", "label": "acknowledge", "title": "Relation: acknowledge", "to": "that the central concept of the modern computer was due to Turing \u0027s paper.[65 ]"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "study", "title": "Relation: study", "to": "cryptology"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "attend", "title": "Relation: attend", "to": "lectures given in 1939 by Ludwig Wittgenstein about the foundations of mathematics.[72 ]"}, {"arrows": "to", "color": "#555555", "from": "The historian and wartime codebreaker Asa Briggs", "label": "say", "title": "Relation: say", "to": "You needed exceptional talent , you needed genius at Bletchley and Turing \u0027s was that genius"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "work", "title": "Relation: work", "to": "the British codebreaking organisation"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "make", "title": "Relation: make", "to": "an innovative contribution to the subject"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "write", "title": "Relation: write", "to": "two papers discussing mathematical approaches"}, {"arrows": "to", "color": "#555555", "from": "A GCHQ mathematician , \" who identified himself only as Richard", "label": "say", "title": "Relation: say", "to": "that the fact that the contents had been restricted under the Official Secrets Act for some 70 years demonstrated their importance , and their relevance to post - war cryptanalysis:[85"}, {"arrows": "to", "color": "#555555", "from": "Richard", "label": "say", "title": "Relation: say", "to": "that GCHQ had now \" squeezed the juice \" out of the two papers and was \" happy for them to be released into the public domain \""}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "have", "title": "Relation: have", "to": "a reputation for eccentricity at Bletchley Park"}, {"arrows": "to", "color": "#555555", "from": "we", "label": "believe", "title": "Relation: believe", "to": "that we ourselves could have created such concepts and originated such thoughts"}, {"arrows": "to", "color": "#555555", "from": "one", "label": "realize", "title": "Relation: realize", "to": "that one is in the presence of an intelligence , a sensibility of such profundity and originality that one is filled with wonder and excitement"}, {"arrows": "to", "color": "#555555", "from": "official war historian Harry Hinsley", "label": "estimate", "title": "Relation: estimate", "to": "that this work shortened the war in Europe by more than two years"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "add", "title": "Relation: add", "to": "that this did not account for the use of the atomic bomb and other eventualities.[98"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "specify", "title": "Relation: specify", "to": "an electromechanical machine called the bombe , which could break Enigma more effectively than the Polish bomba kryptologiczna , from which its name was derived"}, {"arrows": "to", "color": "#555555", "from": "The bombe", "label": "become", "title": "Relation: become", "to": "one of the primary tools"}, {"arrows": "to", "color": "#555555", "from": "Most of the possible settings", "label": "cause", "title": "Relation: cause", "to": "contradictions"}, {"arrows": "to", "color": "#555555", "from": "They", "label": "set", "title": "Relation: set", "to": "a good working system for decrypting Enigma signals"}, {"arrows": "to", "color": "#555555", "from": "They", "label": "need", "title": "Relation: need", "to": "more resources"}, {"arrows": "to", "color": "#555555", "from": "They", "label": "emphasise", "title": "Relation: emphasise", "to": "how small their need was compared with the vast expenditure of men and money by the forces and compared with the level of assistance they could offer to the forces.[105 ]"}, {"arrows": "to", "color": "#555555", "from": "This letter", "label": "have", "title": "Relation: have", "to": "an electric effect"}, {"arrows": "to", "color": "#555555", "from": "Churchill", "label": "write", "title": "Relation: write", "to": "a memo"}, {"arrows": "to", "color": "#555555", "from": "the chief of the secret service", "label": "report", "title": "Relation: report", "to": "as Milner - Barry recalled , \" All that we did notice was that almost from that day the rough ways began miraculously to be made smooth"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "solve", "title": "Relation: solve", "to": "the essential part of the naval indicator system , which was more complex than the indicator systems used by the other services.[110][111 ]"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "invent", "title": "Relation: invent", "to": "a measure of weight of evidence that he called the ban"}, {"arrows": "to", "color": "#555555", "from": "Banburismus", "label": "rule", "title": "Relation: rule", "to": "certain sequences of the Enigma rotors"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "visit", "title": "Relation: visit", "to": "their Computing Machine Laboratory"}, {"arrows": "to", "color": "#555555", "from": "Hugh Alexander", "label": "assume", "title": "Relation: assume", "to": "the position of head of Hut 8"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "devise", "title": "Relation: devise", "to": "a technique termed Turingery ( or jokingly Turingismus[121 ] )"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "introduce", "title": "Relation: introduce", "to": "the Tunny team"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "develop", "title": "Relation: develop", "to": "his knowledge of electronics with the assistance of REME officer Donald Bayley"}, {"arrows": "to", "color": "#555555", "from": "They", "label": "undertake", "title": "Relation: undertake", "to": "The machine was intended for different applications"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "present", "title": "Relation: present", "to": "Von Neumann \u0027s incomplete First Draft of a Report on the EDVAC had predated Turing \u0027s paper"}, {"arrows": "to", "color": "#555555", "from": "the effect of the Official Secrets Act surrounding the wartime work at Bletchley Park", "label": "make", "title": "Relation: make", "to": "it impossible"}, {"arrows": "to", "color": "#555555", "from": "It", "label": "execute", "title": "Relation: execute", "to": "its first program"}, {"arrows": "to", "color": "#555555", "from": "It", "label": "take", "title": "Relation: take", "to": "place"}, {"arrows": "to", "color": "#555555", "from": "The interrogation", "label": "have", "title": "Relation: have", "to": "the form of a colloquium"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "write", "title": "Relation: write", "to": "the first version of the Programmer \u0027s Manual for this machine"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "suggest", "title": "Relation: suggest", "to": "that rather than building a program to simulate the adult mind , it would be better to produce a simpler one to simulate a child \u0027s mind and then to subject it to a course of education"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "suggest", "title": "Relation: suggest", "to": "that a system of chemicals reacting with each other and diffusing across space , termed a reaction \u2013 diffusion system , could account for \" the main phenomena of morphogenesis\".[151 ]"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "use", "title": "Relation: use", "to": "systems of partial differential equations"}, {"arrows": "to", "color": "#555555", "from": "we", "label": "say", "title": "Relation: say", "to": "that the reaction is autocatalytic , and there is positive feedback that can be modelled by nonlinear differential equations"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "discover", "title": "Relation: discover", "to": "that patterns could be created if the chemical reaction not only produced catalyst A , but also produced an inhibitor B that slowed down the production of A."}, {"arrows": "to", "color": "#555555", "from": "you", "label": "have", "title": "Relation: have", "to": "some regions where A dominated and some where B did"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "need", "title": "Relation: need", "to": "a powerful computer"}, {"arrows": "to", "color": "#555555", "from": "These calculations", "label": "give", "title": "Relation: give", "to": "the right qualitative results"}, {"arrows": "to", "color": "#555555", "from": "The Russian biochemist Boris Belousov", "label": "perform", "title": "Relation: perform", "to": "experiments with similar results"}, {"arrows": "to", "color": "#555555", "from": "A study conducted in 2023", "label": "confirm", "title": "Relation: confirm", "to": "Turing \u0027s mathematical model hypothesis"}, {"arrows": "to", "color": "#555555", "from": "the experiment", "label": "involve", "title": "Relation: involve", "to": "growing chia seeds"}, {"arrows": "to", "color": "#555555", "from": "Researchers", "label": "tweak", "title": "Relation: tweak", "to": "patterns resembling those seen in natural environments emerged"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "find", "title": "Relation: find", "to": "that he was unable to break his own code describing where exactly he had hidden them"}, {"arrows": "to", "color": "#555555", "from": "This", "label": "mean", "title": "Relation: mean", "to": "that he never regained the silver.[164"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "acknowledge", "title": "Relation: acknowledge", "to": "a sexual relationship with Murray"}, {"arrows": "to", "color": "#555555", "from": "The treatment rendered Turing impotent and", "label": "cause", "title": "Relation: cause", "to": "breast tissue"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "write", "title": "Relation: write", "to": "that \" no doubt I shall emerge from it all a different man , but quite who I \u0027ve not found out\".[176][177 ] Murray was given a conditional discharge.[178 ] Turing \u0027s conviction led to the removal of his security clearance and barred him from continuing with his cryptographic consultancy for GCHQ , the British signals intelligence agency that had evolved from GC\u0026CS in 1946 , though he kept his academic post"}, {"arrows": "to", "color": "#555555", "from": "His trial", "label": "take", "title": "Relation: take", "to": "place"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "visit", "title": "Relation: visit", "to": "Norway which was more tolerant of homosexuals"}, {"arrows": "to", "color": "#555555", "from": "Turing \u0027s housekeeper", "label": "find", "title": "Relation: find", "to": "A post mortem was held that evening , which determined that he had died the previous day at age 41 with cyanide poisoning cited as the cause of death.[184][185 ]"}, {"arrows": "to", "color": "#555555", "from": "Turing \u0027s brother , John ,", "label": "identify", "title": "Relation: identify", "to": "the body"}, {"arrows": "to", "color": "#555555", "from": "The inquest", "label": "hold", "title": "Relation: hold", "to": "the following day , which determined the cause of death to be suicide.[174 ]"}, {"arrows": "to", "color": "#555555", "from": "His nephew , writer Dermot Turing ,", "label": "believe", "title": "Relation: believe", "to": "that his conviction or hormone treatment had anything to do with his suicide"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "point", "title": "Relation: point", "to": "that the conviction ended in 1952 and the treatment the following year"}, {"arrows": "to", "color": "#555555", "from": "no physiological evidence", "label": "find", "title": "Relation: find", "to": "that the treatment had any impact on his uncle \u0027s mental health"}, {"arrows": "to", "color": "#555555", "from": "She", "label": "accept", "title": "Relation: accept", "to": "the verdict of suicide.[187"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "suggest", "title": "Relation: suggest", "to": "an alternative explanation for the cause of Turing \u0027s death : the accidental inhalation of cyanide fumes from an apparatus used to electroplate gold onto spoons"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "have", "title": "Relation: have", "to": "such an apparatus set up in his tiny spare room"}, {"arrows": "to", "color": "#555555", "from": "Copeland", "label": "note", "title": "Relation: note", "to": "that the autopsy findings were more consistent with inhalation than with ingestion of the poison"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "bear", "title": "Relation: bear", "to": "his legal setbacks and hormone treatment ( which had been discontinued a year previously"}, {"arrows": "to", "color": "#555555", "from": "Turing biographer Andrew Hodges", "label": "theorise", "title": "Relation: theorise", "to": "who , in his review of Hodges \u0027 book , recalls \" Turing \u0027s vulnerable position in the Cold War political climate \" and points out that \" Turing was found dead by a maid , who discovered him \u0027 lying neatly in his bed\u0027\u2014hardly"}, {"arrows": "to", "color": "#555555", "from": "Both men", "label": "note", "title": "Relation: note", "to": "] It has also been suggested that Turing \u0027s belief in fortune - telling may have caused his depressed mood.[192 ]"}, {"arrows": "to", "color": "#555555", "from": "Turing", "label": "tell", "title": "Relation: tell", "to": "that he would be a genius"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "think", "title": "Relation: think", "to": "it would be a good idea to go to the Pleasure Beach at Blackpool"}, {"arrows": "to", "color": "#555555", "from": "we", "label": "find", "title": "Relation: find", "to": "a fortune - teller \u0027s tent"}, {"arrows": "to", "color": "#555555", "from": "we", "label": "know", "title": "Relation: know", "to": "what the fortune - teller said"}, {"arrows": "to", "color": "#555555", "from": "British programmer John Graham - Cumming", "label": "start", "title": "Relation: start", "to": "a petition urging the British government to apologise for Turing \u0027s prosecution as a homosexual.[199][200 ] The petition received more than 30,000 signatures.[201][202 ]"}, {"arrows": "to", "color": "#555555", "from": "British prime minister Gordon Brown", "label": "acknowledge", "title": "Relation: acknowledge", "to": "the petition"}, {"arrows": "to", "color": "#555555", "from": "you", "label": "deserve", "title": "Relation: deserve", "to": "so much better.[201][204"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "kill", "title": "Relation: kill", "to": "himself"}, {"arrows": "to", "color": "#555555", "from": "This", "label": "remain", "title": "Relation: remain", "to": "a shame on the British government and British history"}, {"arrows": "to", "color": "#555555", "from": "the petition", "label": "gather", "title": "Relation: gather", "to": "over 37,000 signatures,[205][207"}, {"arrows": "to", "color": "#555555", "from": "He", "label": "know", "title": "Relation: know", "to": "that his offence was against the law and that he would be prosecuted"}, {"arrows": "to", "color": "#555555", "from": "the law", "label": "require", "title": "Relation: require", "to": "a prosecution"}, {"arrows": "to", "color": "#555555", "from": "Leech", "label": "make", "title": "Relation: make", "to": "that Turing \u0027s contribution to the war made him a national hero and that it was \" ultimately just embarrassing \" that the conviction still stood.[211 ] Leech continued to take the bill through Parliament and campaigned for several years , gaining the public support of numerous leading scientists , including the physicist Stephen Hawking.[212][213 ] On 26 July 2012 , a bill was introduced in the House of Lords to grant a statutory pardon to Turing for offences under section 11 of the Criminal Law Amendment Act 1885 , of which he was convicted on 31 March 1952.[214 ]"}, {"arrows": "to", "color": "#555555", "from": "Lord Chancellor Chris Grayling", "label": "say", "title": "Relation: say", "to": "Turing deserved to be \" remembered and recognised for his fantastic contribution to the war effort \" and not for his later criminal conviction.[207][223 ] The Queen pronounced Turing pardoned in August 2014.[224 ]"}, {"arrows": "to", "color": "#555555", "from": "the government", "label": "announce", "title": "Relation: announce", "to": "its intention to expand this retroactive exoneration to other men convicted of similar historical indecency offences , in what was described as an \" Alan Turing law\".[227][228"}, {"arrows": "to", "color": "#555555", "from": "The Imitation Game , the producers thanked Leech for bringing the topic to public attention and securing Turing \u0027s pardon.[233 ] On 19 July 2023 , following an apology to LGBT veterans from the UK Government , Defence Secretary Ben Wallace", "label": "suggest", "title": "Relation: suggest", "to": "Turing should be honoured with a permanent statue on the fourth plinth of Trafalgar Square , describing Turing as \" probably the greatest war hero , in my book , of the Second World War , [ whose ] achievements shortened the war"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -80,
+            "springConstant": 0.05,
+            "springLength": 200
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
